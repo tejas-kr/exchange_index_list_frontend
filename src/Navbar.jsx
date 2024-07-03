@@ -7,8 +7,11 @@ function Navbar({setIndexName, setSearchInput}) {
   };
 
   const handleCompanyNameSearch = (event) => {
-    if (event.key === 'Enter') {
-      setSearchInput(document.getElementById("company_search_input").value);
+    event.preventDefault();
+    const inputValue = document.getElementById("company_search_input").value
+    console.log("event key:", event.key);
+    if (inputValue !== "") {
+      setSearchInput(inputValue);
     }
   };
 
@@ -27,7 +30,9 @@ function Navbar({setIndexName, setSearchInput}) {
 
           {/* <!-- Search field --> */}
           <div className="mb-4 w-full md:mb-0 md:w-1/4">
-            <input id='company_search_input' onKeyUp={handleCompanyNameSearch} className="bg-grey-lightest border-2 focus:border-orange p-2 rounded-lg shadow-inner w-full" placeholder="Search Company" type="text" />
+            <form onSubmit={handleCompanyNameSearch}>
+              <input id='company_search_input' className="bg-grey-lightest border-2 focus:border-orange p-2 rounded-lg shadow-inner w-full" placeholder="Search Company" type="text" />
+            </form>
           </div>
           {/* <!-- END Search field --> */}
 
