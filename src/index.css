@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300
+    /* @apply bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 */
+  }
+
+  h1 {
+    @apply text-5xl lg:text-6xl font-semibold;
+  }
+
+  h2 {
+    @apply text-2xl font-medium;
+  }
+}
